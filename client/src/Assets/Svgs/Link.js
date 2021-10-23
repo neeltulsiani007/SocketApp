@@ -14,6 +14,9 @@ const pathVariants = {
   hover: {
     x: [0, 5],
     y: [0, -5],
+    transition: {
+      duration: 0.25,
+    },
   },
   initial: {
     x: 0,
@@ -25,6 +28,9 @@ const pathVariants2 = {
   hover: {
     x: [0, -5],
     y: [0, +5],
+    transition: {
+      duration: 0.25,
+    },
   },
   initial: {
     x: 0,

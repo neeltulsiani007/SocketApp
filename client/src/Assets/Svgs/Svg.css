@@ -4,11 +4,11 @@
 
   padding: 10px;
   border-radius: 50%;
-  border: 3px solid white;
+  border: 3px solid var(--secondary-color);
 }
 
 .svg-path {
-  fill: white;
+  fill: var(--secondary-color);
 }
 
 .svg:hover {

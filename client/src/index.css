@@ -1,8 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
 
 :root {
-  --primary-color: #000;
-  --secondary-color: #fff;
+  --primary-color: #fff;
+  --secondary-color: #000;
 }
 
 * {
@@ -11,6 +11,7 @@
   box-sizing: border-box;
 
   color: var(--secondary-color);
+  transition: background 0.5s;
 }
 
 #root {
