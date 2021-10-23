@@ -2,9 +2,9 @@ import "./Header.css";
 
 const Header = () => {
   return (
-    <div>
-      <h1>this is the header</h1>
-    </div>
+    <header>
+      <h1 className="header-title">Multiplayer Tic Tac Toe</h1>
+    </header>
   );
 };
 

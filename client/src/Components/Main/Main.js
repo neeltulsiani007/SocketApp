@@ -2,9 +2,9 @@ import "./Main.css";
 
 const Main = () => {
   return (
-    <div>
+    <main>
       <h1>this is the main</h1>
-    </div>
+    </main>
   );
 };
 
