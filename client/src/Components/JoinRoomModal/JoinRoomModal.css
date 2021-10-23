@@ -1,0 +1,18 @@
+.joinRoomModal-container {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+
+  display: grid;
+  place-content: center;
+
+  position: fixed;
+}
+
+.joinRoomModal-hide {
+  display: none;
+}
+
+.joinRoomModal-card {
+  background-color: red;
+}

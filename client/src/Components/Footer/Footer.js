@@ -2,10 +2,10 @@ import DarkMode from "../../Assets/Svgs/DarkMode";
 import LinkSvg from "../../Assets/Svgs/Link";
 import "./Footer.css";
 
-const Footer = () => {
+const Footer = ({ setShowModal }) => {
   return (
     <footer>
-      <LinkSvg />
+      <LinkSvg setShowModal={setShowModal} />
       <DarkMode />
     </footer>
   );
