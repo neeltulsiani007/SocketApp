@@ -1,18 +1,78 @@
 import "./Svg.css";
+import { motion, useAnimation } from "framer-motion";
+
+const svgVariants = {
+  hover: {
+    scale: 1.2,
+  },
+  tap: {
+    scale: 0.8,
+  },
+};
+
+const pathVariants = {
+  hover: {
+    x: [0, 5],
+    y: [0, -5],
+  },
+  initial: {
+    x: 0,
+    y: 0,
+  },
+};
+
+const pathVariants2 = {
+  hover: {
+    x: [0, -5],
+    y: [0, +5],
+  },
+  initial: {
+    x: 0,
+    y: 0,
+  },
+};
 
 const LinkSvg = () => {
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="svg">
-      <path
-        className="svg-path"
-        d="M21.921 2.081c2.771 2.772 2.771 7.269 0 10.042l-3.84 3.839-2.121-2.122 3.839-3.84c1.599-1.598 1.599-4.199-.001-5.797-1.598-1.599-4.199-1.599-5.797-.001l-3.84 3.839-2.121-2.121 3.84-3.839c2.771-2.773 7.267-2.773 10.041 0z"
-      />
+  const controls = useAnimation();
+  const controls2 = useAnimation();
+  const handleMouseEnterControls = () => {
+    controls.start("hover");
+    controls2.start("hover");
+  };
 
-      <path
-        className="svg-path"
-        d="M 21.921 2.081 m -8.082 13.879 l -3.84 3.839 c -1.598 1.6 -4.199 1.599 -5.799 0 c -1.598 -1.598 -1.598 -4.2 0 -5.797 l 3.84 -3.84 l -2.121 -2.121 l -3.84 3.84 c -2.771 2.772 -2.772 7.268 0 10.041 c 2.773 2.772 7.27 2.773 10.041 0 l 3.84 -3.84 l -2.121 -2.122 z"
-      />
-    </svg>
+  const handleMouseLeaveControls = () => {
+    controls.start("initial");
+    controls2.start("initial");
+  };
+  return (
+    <motion.div
+      onMouseEnter={handleMouseEnterControls}
+      onMouseLeave={handleMouseLeaveControls}
+      variants={svgVariants}
+      whileHover="hover"
+      whileTap="tap"
+      className="svg"
+    >
+      <svg
+        whileHover={{ scale: 1.2 }}
+        whileTap={{ scale: 0.8 }}
+        xmlns="http://www.w3.org/2000/motion."
+        viewBox="0 0 24 24"
+      >
+        <motion.path
+          variants={pathVariants}
+          animate={controls}
+          className="svg-path"
+          d="M16 0l-3 9h9l-1.866 2h-14.4l10.266-11z"
+        />
+        <motion.path
+          variants={pathVariants2}
+          animate={controls2}
+          className="svg-path"
+          d="M 16 0 m 2.267 13 h -14.4 l -1.867 2 h 9 l -3 9 l 10.267 -11 z"
+        />
+      </svg>
+    </motion.div>
   );
 };
 
