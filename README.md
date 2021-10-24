@@ -12,13 +12,13 @@
 ## Images
 
 ### Dark Mode
-![alt text](https://github.com/AugustinSorel/SortingAlgorithmVisualizer/blob/master/Images/BubbleSort.PNG)
+![alt text](https://github.com/AugustinSorel/multiplayerTicTacToe/blob/master/Images/DarkMode.png)
 
 ### Light Mode
-![alt text](https://github.com/AugustinSorel/SortingAlgorithmVisualizer/blob/master/Images/InsertionSort.PNG)
+![alt text](https://github.com/AugustinSorel/multiplayerTicTacToe/blob/master/Images/LightMode.png)
 
 ### Room Id Modal
-![alt text](https://github.com/AugustinSorel/SortingAlgorithmVisualizer/blob/master/Images/QuickSort.PNG)
+![alt text](https://github.com/AugustinSorel/multiplayerTicTacToe/blob/master/Images/RoomIdModal.png)
 
 ### Game
-![alt text](https://github.com/AugustinSorel/SortingAlgorithmVisualizer/blob/master/Images/RadixSort.PNG)
+![alt text](https://github.com/AugustinSorel/multiplayerTicTacToe/blob/master/Images/Game.png)
