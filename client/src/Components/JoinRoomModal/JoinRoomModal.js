@@ -1,5 +1,6 @@
 import "./JoinRoomModal.css";
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 const backgrop = {
   visible: { opacity: 1 },
@@ -21,7 +22,13 @@ const modal = {
   },
 };
 
-const JoinRoomModal = ({ showModal, setShowModal }) => {
+const JoinRoomModal = ({ showModal, setShowModal, setRoomCode }) => {
+  const [roomCodeInput, setRoomCodeInput] = useState(null);
+  const handleSave = () => {
+    setShowModal(false);
+    setRoomCode(roomCodeInput);
+  };
+
   return (
     <>
       {showModal && (
@@ -38,11 +45,9 @@ const JoinRoomModal = ({ showModal, setShowModal }) => {
               className="joinRoomModal-card-input"
               type="number"
               placeholder="eg: 1212"
+              onChange={(e) => setRoomCodeInput(e.target.value)}
             />
-            <button
-              onClick={() => setShowModal(false)}
-              className="joinRoomModal-card-button"
-            >
+            <button onClick={handleSave} className="joinRoomModal-card-button">
               Save
             </button>
           </motion.div>

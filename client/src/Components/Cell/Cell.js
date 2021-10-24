@@ -1,7 +1,11 @@
 import "./Cell.css";
 
-const Cell = () => {
-  return <div className="cell"></div>;
+const Cell = ({ handleCellClick, id, text }) => {
+  return (
+    <div id={id} className="cell" onClick={handleCellClick}>
+      {text}
+    </div>
+  );
 };
 
 export default Cell;
