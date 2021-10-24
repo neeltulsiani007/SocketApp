@@ -9,7 +9,7 @@ function App() {
 
   return (
     <>
-      <JoinRoomModal showModal={showModal} />
+      <JoinRoomModal showModal={showModal} setShowModal={setShowModal} />
       <Header />
       <Main />
       <Footer setShowModal={setShowModal} />
