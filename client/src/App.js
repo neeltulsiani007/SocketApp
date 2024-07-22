@@ -1,34 +1,26 @@
-import Header from "./Components/Header/Header";
-import Main from "./Components/Main/Main";
-import Footer from "./Components/Footer/Footer";
-import JoinRoomModal from "./Components/JoinRoomModal/JoinRoomModal";
-import { useEffect, useState } from "react";
-import io from "socket.io-client";
 
-const socket = io.connect("http://localhost:4000");
+
+
+import { Route, Routes } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
+import First from "./Components/First";
+import Game from "./Components/Game";
+import ChatMain from './Components/ChatMain';
+
+
 
 function App() {
-  const [showModal, setShowModal] = useState(true);
-  const [roomCode, setRoomCode] = useState(null);
-
-  useEffect(() => {
-    console.log(roomCode);
-    if (roomCode) {
-      socket.emit("joinRoom", roomCode);
-    }
-  }, [roomCode]);
+  
 
   return (
-    <>
-      <JoinRoomModal
-        showModal={showModal}
-        setShowModal={setShowModal}
-        setRoomCode={setRoomCode}
-      />
-      <Header />
-      <Main socket={socket} roomCode={roomCode} />
-      <Footer setShowModal={setShowModal} />
-    </>
+   
+    <BrowserRouter>
+      <Routes>
+      <Route exact path='/' element={<First />} />
+      <Route exact path='/game' element={<Game />} />
+      <Route exact path='/chat' element={<ChatMain />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

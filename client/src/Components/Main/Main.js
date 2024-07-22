@@ -66,8 +66,8 @@ const Main = ({ socket, roomCode }) => {
  
 
   return (
-    <main>
-      <section className="main-section">
+    <main className="items-center justify-center flex w-full h-full">
+      <section className="main-section ">
         <Cell handleCellClick={handleCellClick} id={"0"} text={board[0]} />
         <Cell handleCellClick={handleCellClick} id={"1"} text={board[1]} />
         <Cell handleCellClick={handleCellClick} id={"2"} text={board[2]} />
