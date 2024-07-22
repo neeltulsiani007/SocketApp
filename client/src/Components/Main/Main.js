@@ -3,8 +3,11 @@ import Cell from "../Cell/Cell";
 import "./Main.css";
 
 const Main = ({ socket, roomCode }) => {
+
   const [board, setBoard] = useState(["", "", "", "", "", "", "", "", ""]);
   const [canPlay, setCanPlay] = useState(true);
+
+  
 
   useEffect(() => {
     socket.on("updateGame", (id) => {
@@ -16,21 +19,51 @@ const Main = ({ socket, roomCode }) => {
     return () => socket.off("updateGame");
   });
 
+  useEffect(() => {
+    if (
+      (board[0] == "X" && board[1] == "X" && board[2] == "X") ||
+      (board[0] == "O" && board[1] == "O" && board[2] == "O") ||
+      (board[3] == "O" && board[4] == "O" && board[5] == "O") ||
+      (board[6] == "O" && board[7] == "O" && board[8] == "O") ||
+      (board[0] == "O" && board[3] == "O" && board[6] == "O") ||
+      (board[1] == "O" && board[4] == "O" && board[7] == "O") ||
+      (board[2] == "O" && board[5] == "O" && board[8] == "O") ||
+      (board[0] == "O" && board[4] == "O" && board[8] == "O") ||
+      (board[2] == "O" && board[4] == "O" && board[6] == "O") ||
+      (board[3] == "X" && board[4] == "X" && board[5] == "X") ||
+      (board[6] == "X" && board[7] == "X" && board[8] == "X") ||
+      (board[0] == "X" && board[3] == "X" && board[6] == "X") ||
+      (board[1] == "X" && board[4] == "X" && board[7] == "X") ||
+      (board[2] == "X" && board[5] == "X" && board[8] == "X") ||
+      (board[0] == "X" && board[4] == "X" && board[8] == "X") ||
+      (board[2] == "X" && board[4] == "X" && board[6] == "X") 
+    ) {
+      alert("Game over")
+      setBoard(["", "", "", "", "", "", "", "", ""]);
+    }
+  },[board]);
+
+  // const checkstate = ()=>{
+  //   if (
+  //     (board[0] == "X" && board[1] == "X" && board[2] == "X") ||
+  //     (board[0] == "O" && board[1] == "O" && board[2] == "O")
+  //   ) {
+  //     alert("You have lost")
+  //     setBoard(["", "", "", "", "", "", "", "", ""]);
+  //   }
+  // }
+
   const handleCellClick = (e) => {
     const id = e.currentTarget.id;
     if (canPlay && board[id] == "") {
       setBoard((data) => ({ ...data, [id]: "X" }));
       socket.emit("play", { id, roomCode });
       setCanPlay(false);
+    };
+     
     }
 
-    if (
-      (board[0] == "X" && board[1] == "X" && board[2] == "X") ||
-      (board[0] == "O" && board[1] == "O" && board[2] == "O")
-    ) {
-      setBoard(["", "", "", "", "", "", "", "", ""]);
-    }
-  };
+ 
 
   return (
     <main>

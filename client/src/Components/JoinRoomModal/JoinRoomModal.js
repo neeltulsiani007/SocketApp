@@ -25,8 +25,16 @@ const modal = {
 const JoinRoomModal = ({ showModal, setShowModal, setRoomCode }) => {
   const [roomCodeInput, setRoomCodeInput] = useState(null);
   const handleSave = () => {
+    console.log(roomCodeInput)
+    if(roomCodeInput == null || roomCodeInput.length < 4)
+    {
+      alert("Enter 4 digit room code to play")
+      return
+    }
+    else{
     setShowModal(false);
     setRoomCode(roomCodeInput);
+    }
   };
 
   return (
@@ -43,8 +51,8 @@ const JoinRoomModal = ({ showModal, setShowModal, setRoomCode }) => {
             <h1 className="joinRoomModal-card-title">Enter a room code</h1>
             <input
               className="joinRoomModal-card-input"
-              type="number"
-              placeholder="eg: 1212"
+              type="text"
+              placeholder="eg: 0000"
               onChange={(e) => setRoomCodeInput(e.target.value)}
             />
             <button onClick={handleSave} className="joinRoomModal-card-button">
